@@ -1,6 +1,8 @@
 # go-ping-sql
 
 SQL ping for mysql/postgres.
+For MySQL, this pinger uses https://github.com/go-sql-driver/mysql .
+For Postgres, this pinger uses https://github.com/lib/pq .
 
 ## prepare
 
@@ -47,6 +49,8 @@ exit status 1
 ### sslmode=require
 
 This should pass, as long as the instance is using `rds-ca-2019`
+
+(And this is default sslmode with github.com/lib/pq)
 
 ```
 PGPASSWORD=xxx go run main.go postgres "user=xxx dbname=xxx sslmode=require host=your.db.region.rds.amazonaws.com"
